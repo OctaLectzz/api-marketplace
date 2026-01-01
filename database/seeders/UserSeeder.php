@@ -16,8 +16,8 @@ class UserSeeder extends Seeder
         User::factory()->create([
             'avatar' => '1716963804-adminn.png',
             'username' => 'adminn',
-            'name' => 'Muhammad Racka Virgian Arifai',
-            'email' => 'admin@test.com',
+            'name' => 'Admin',
+            'email' => 'admin@example.com',
             'password' => bcrypt('password'),
             'role' => 'Admin',
             'province_id' => 6,
@@ -48,7 +48,7 @@ class UserSeeder extends Seeder
         User::factory()->create([
             'username' => 'mitraa',
             'name' => 'Mitra',
-            'email' => 'mitra@test.com',
+            'email' => 'mitra@example.com',
             'password' => bcrypt('password'),
             'role' => 'Mitra',
             'province_id' => 6,
@@ -79,7 +79,7 @@ class UserSeeder extends Seeder
             'avatar' => '1716385450-octalectzz.jpg',
             'username' => 'octalectzz',
             'name' => 'Octavyan Putra Ramadhan',
-            'email' => 'customer@test.com',
+            'email' => 'customer@example.com',
             'password' => bcrypt('password'),
             'role' => 'Customer',
             'phone_number' => '089690220404',

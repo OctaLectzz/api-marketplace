@@ -21,11 +21,11 @@ class CreateRegenciesTables extends Migration
     public function up()
     {
         Schema::create('regencies', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('province_id');
+            $table->char('id', 4)->primary();
+            $table->char('province_id');
             $table->string('type');
             $table->string('name');
-            $table->string('postal_code');
+            $table->string('postal_code')->nullable();
             $table->timestamps();
         });
     }

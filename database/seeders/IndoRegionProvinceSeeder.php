@@ -15,11 +15,12 @@ class IndoRegionProvinceSeeder extends Seeder
     {
         $provinces = Http::withOptions(['verify' => false])
             ->withHeaders(['key' => env('RAJAONGKIR_API_KEY')])
-            ->get('https://api.rajaongkir.com/starter/province')->json()['rajaongkir']['results'];
+            ->get('https://rajaongkir.komerce.id/api/v1/destination/province')->json()['data'];
 
         foreach ($provinces as $province) {
             Province::create([
-                'name'        => $province['province'],
+                'id'        => $province['id'],
+                'name'        => $province['name'],
                 'created_at'  => now(),
                 'updated_at'  => now(),
             ]);

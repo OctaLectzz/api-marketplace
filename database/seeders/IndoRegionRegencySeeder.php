@@ -19,17 +19,18 @@ class IndoRegionRegencySeeder extends Seeder
         foreach ($provinces as $province) {
             $cities = Http::withOptions(['verify' => false,])
                 ->withHeaders(['key' => env('RAJAONGKIR_API_KEY')])
-                ->get('https://api.rajaongkir.com/starter/city?province=' . $province->id)->json()['rajaongkir']['results'];
+                ->get('https://rajaongkir.komerce.id/api/v1/destination/city/' . $province->id)->json()['data'];
 
             $insert_city = [];
 
             foreach ($cities as $city) {
 
                 $data = [
+                    'id'          => $city['id'],
                     'province_id'   => $province->id,
-                    'type'          => $city['type'],
-                    'name'          => $city['type'] . ' ' . $city['city_name'],
-                    'postal_code'   => $city['postal_code'],
+                    'type'          => $city['name'],
+                    'name'          => $city['name'],
+                    'postal_code'   => $city['zip_code'] ?? null,
                     'created_at'    => now(),
                     'updated_at'    => now(),
                 ];

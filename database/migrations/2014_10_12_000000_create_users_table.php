@@ -21,8 +21,8 @@ return new class extends Migration
             $table->string('password');
             $table->enum('role', ['Customer', 'Mitra', 'Admin']);
             $table->string('phone_number')->nullable();
-            $table->unsignedBigInteger('province_id')->nullable()->index('fk_users_to_provinces');
-            $table->unsignedBigInteger('regency_id')->nullable()->index('fk_users_to_regencies');
+            $table->char('province_id')->nullable()->index('fk_users_to_provinces');
+            $table->char('regency_id')->nullable()->index('fk_users_to_regencies');
             $table->char('district_id')->nullable()->index('fk_users_to_districts');
             $table->char('village_id')->nullable()->index('fk_users_to_villages');
             $table->string('country')->nullable();
